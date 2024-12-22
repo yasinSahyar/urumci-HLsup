@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="./assets/healthy-fff03e16.svg" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Example Vite PWA">
+  <link rel="apple-touch-icon" href="./icons/icon-192x192.png" sizes="192x192">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  
+
+  <title>HEALTHYSUPP</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <script type="module" crossorigin src="./assets/payment-e27a1750.js"></script>
+  <script type="module" crossorigin src="./assets/main-2d10ea07.js"></script>
+  <link rel="stylesheet" href="./assets/main-c3ece8f0.css">
+<link rel="manifest" href="./manifest.webmanifest"><script id="vite-plugin-pwa:register-sw" src="./registerSW.js"></script></head>
+
+<body>
+  <header class="header">
+      <a href="#" class="logo">
+        <img src="./assets/healthysupp_logoff-d2a6ae41.jpg" alt="logo">
+      </a>
+      <nav class="navbar">
+        <a href="index.html">Home</a>
+        <a href="Menu.html">Shopping</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <div class="icons">
+        <!-- Lisää tämä HTML-elementti, johon käyttäjän nimi näytetään -->
+        <div class="fas fa-user" id="user-btn"></div>
+        <div class="fas fa-shopping-cart" id="cart-btn"></div>
+        <span class="quantity">0</span>
+        <div class="fas fa-search" id="search-btn"></div>
+        <div class="fas fa-bars" id="menu-btn"></div>
+        <div class="logbar">
+          <h2 id="username-display" style="display: none;"></h2>
+          <div class="logbar1">
+          <button><div class="fas fa-right-to-bracket" id="LoginBtn"> register</div></button>
+          <button id="logoutbtn"  class="active">
+          <div class="fas fa-right-from-bracket" id="log">Logout</div>
+          </button></div>
+        </div>
+      </div>
+      <div class="search-form">
+        <input type="search" id="search-bar" placeholder="search here...">
+        <label for="search-box" class="fas fa-search"></label>
+      </div>
+      <div class="cart-items-container">
+        <h1>Card</h1>
+        <ul class="listCard"></ul>
+        <div class="cart-actions">
+          <button id="clear-cart">Tyhjennä Ostoskori</button>
+          <button id="checkout" >Maksaminen</button>
+
+        </div>
+        <div class="checkOut">
+          <div class="total">0</div>
+          <div class="closeShopping">Close</div>
+        </div>
+        </div>
+  </header>
+  <section class="home" id="home">
+    <div class="content">
+      <h3>SUPPLEMENT HEALTHIER</h3>
+      <p>Our mission is to provide you with the tools, guidance, and support you need to achieve quick and effortless success. Whether you're looking to make significant strides in your personal goals or elevate your professional skills, we're here to streamline the process, ensuring you gain maximum results with minimum hassle.</p>
+    </div>
+    <div class="image-container">
+      <img src="./assets/Logo-60fe9070.png" alt="Our Product" class="responsive-img">
+    </div>
+  </section>
+  <section id="best-products">
+    <h1>Our Categories</h1>
+    <!-- Jokaisen kategorian tuote näytetään tässä -->
+  </section>
+  <section class="about" id="about">
+    <h1 class="heading"><span>about us</span></h1>
+    <div class="row">
+      <div class="image">
+        <img src="./assets/images-f4ef3820.png" alt="">
+      </div>
+      <div class="content">
+        <h3>Supporting Your Fitness Goals with Passion and Quality</h3>
+        <p>"Founded by fitness enthusiasts, HEALTHYSUPP was born out of a passion for health and wellness. We believe that having the right gear can make all the difference on your fitness journey, which is why we offer a wide range of high-quality and affordable gym products to suit every need, from home workout essentials to professional equipment, ensuring your path to fitness is both supported and satisfying."</p>
+      </div>
+    </div>
+  </section>
+  <section class="contact" id="contact">
+    <h1 class="heading"><span>contact us</span></h1>
+    <div class="row">
+      <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1981.3856342944646!2d24.758513900000015!3d60.2239959!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x468df797cfe43cbb%3A0xb99a2c26d4df39ff!2sMetropolia%20University%20of%20Applied%20Sciences%20-%20Karamalmi%20Campus!5e0!3m2!1sen!2sfi!4v1729360734810!5m2!1sen!2sfi"  allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      <form action="">
+        <div class="inputBox">
+          <p>HEALTHYSUPP@GMAIL.COM</p>
+        </div>
+        <div class="inputBox">
+          <p>PHONE: +35845######</p>
+        </div>
+        <div class="inputBox">
+          <p>HELSINKI - FINLAND</p>
+        </div>
+
+        <div class="inputBox">
+          <a href="#"><img src="./assets/facebook-4f7e3281.png" alt="Facebook"></a>
+          <a href="#"><img src="./assets/twitter-32a7e2de.png" alt="X (formerly Twitter)"></a>
+          <a href="#"><img src="./assets/instagram-0a016134.png" alt="Instagram"></a>
+          <a href="#"><img src="./assets/linkedin-66de55a9.png" alt="LinkedIn"></a>
+        </div>
+      </form>
+    </div>
+  </section>
+  <section id="User">
+    <dialog id="user-modal" class="container">
+      <span class="close-modal" id="close-modal">&times;</span>
+      <div class="forms-container">
+        <div class="signin-signup">
+          <form action="#" class="sign-in-form">
+            <h2 class="title">Sign in</h2>
+            <div class="input-field">
+              <i class="fas fa-envelope"></i>
+              <input type="email" placeholder="Email" />
+            </div>
+            <div class="input-field">
+              <i class="fas fa-lock"></i>
+              <input type="password" placeholder="Password" />
+            </div>
+            <input type="submit" value="Login" class="btn-sign solid" />
+
+          </form>
+          <form action="#" class="sign-up-form">
+            <h2 class="title">Sign up</h2>
+            <div class="input-field">
+              <i class="fas fa-user"></i>
+              <input type="text" placeholder="Username" />
+            </div>
+            <div class="input-field">
+              <i class="fas fa-envelope"></i>
+              <input type="email" placeholder="Email" />
+            </div>
+            <div class="input-field">
+              <i class="fas fa-lock"></i>
+              <input type="password" placeholder="Password" />
+            </div>
+            <div class="input-field">
+              <i class="fas fa-phone"></i>
+              <input type="number" placeholder="Phone" />
+            </div>
+            <input type="submit" class="btn-sign" value="Sign up" />
+
+          </form>
+        </div>
+      </div>
+
+      <div class="panels-container">
+        <div class="panel left-panel">
+          <div class="content sing-up-content">
+            <h3>New here</h3>
+            <p>
+              Join us and discover exclusive benefits! Sign up to get started on your journey with us.
+            </p>
+            <button class="btn-sign transparent" id="sign-up-btn">
+              Sign up
+            </button>
+          </div>
+        </div>
+        <div class="panel right-panel">
+          <div class="content sing-in-content" >
+            <h3>Welcome Back!</h3>
+            <p>
+              Already have an account? Sign in to stay connected with us and access your personalized dashboard.
+            </p>
+            <button class="btn-sign transparent" id="sign-in-btn">
+              Sign in
+            </button>
+          </div>
+        </div>
+      </div>
+    </dialog>
+  </section>
+  <section>
+    <div class="feedback-container">
+      <h2>Feedback Form</h2>
+      <form id="feedback-form">
+        <input type="text" id="name" placeholder="Your Name" required>
+        <input type="email" id="email" placeholder="Your Email" required>
+        <textarea id="feedback" placeholder="Your Feedback" rows="4" required></textarea>
+        <button type="submit" id="feedbackbtn">Submit Feedback</button>
+      </form>
+      <div class="feedback-list" id="feedback-list"></div>
+    </div>
+
+  </section>
+
+  <footer>
+    <div class="footer-container">
+      <div class="footer-logo">
+        <img src="./assets/healthysupp_logoff-d2a6ae41.jpg" alt="logo">
+      </div>
+      <div class="footer-social">
+        <a href="#"><img src="./assets/facebook-4f7e3281.png" alt="Facebook"></a>
+        <a href="#"><img src="./assets/twitter-32a7e2de.png" alt="X (formerly Twitter)"></a>
+        <a href="#"><img src="./assets/instagram-0a016134.png" alt="Instagram"></a>
+        <a href="#"><img src="./assets/linkedin-66de55a9.png" alt="LinkedIn"></a>
+      </div>
+      <div class="footer-text">
+        <p>
+          &copy; 2021 HEALTHYSUPP. All rights reserved.
+        </p>
+      </div>
+    </div>
+  </footer>
+</body>
+
+</html>

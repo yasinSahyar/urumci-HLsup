@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Two-Step Payment Page</title>
+  <script type="module" src="/src/payment.ts"></script>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f3f4f6;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .payment-container {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      width: 400px;
+      padding: 20px;
+      display: none; /* Only show active step */
+    }
+
+    .payment-container.active {
+      display: block;
+    }
+
+    h1, h2 {
+      text-align: center;
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    .payment-form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .payment-form label {
+      font-size: 14px;
+      color: #555;
+    }
+
+    .payment-form input {
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      font-size: 14px;
+    }
+
+    .payment-form button {
+      background: linear-gradient(45deg, blueviolet, deeppink);
+      color: white;
+      padding: 10px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .payment-form button:hover {
+      opacity: 0.9;
+      letter-spacing: 1px;
+    }
+
+    .confirmation {
+      margin-top: 20px;
+      text-align: center;
+      font-size: 14px;
+      color: #666;
+    }
+
+    .confirmation a {
+      color: blueviolet;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .confirmation a:hover {
+      text-decoration: underline;
+    }
+    @media print {
+  body * {
+    visibility: hidden; /* Hide everything by default */
+  }
+
+  #receipt-container, #receipt-container * {
+    visibility: visible; /* Only show the receipt */
+  }
+
+  #receipt-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%; /* Ensure it takes up the full width for printing */
+  }
+}
+
+  </style>
+</head>
+<body>
+  <!-- Step 1: Billing Details -->
+  <div id="step-1" class="payment-container active">
+    <h1>Step 1: Billing Details</h1>
+    <form id="billing-form" class="payment-form">
+      <label for="card-name">Cardholder Name</label>
+      <input type="text" id="card-name" placeholder="John Doe" required>
+
+      <label for="address">Billing Address</label>
+      <input type="text" id="address" placeholder="1234 Main St" required>
+
+      <label for="city">City</label>
+      <input type="text" id="city" placeholder="New York" required>
+
+      <label for="state">State</label>
+      <input type="text" id="state" placeholder="NY" required maxlength="2">
+
+      <label for="phone">Phone</label>
+      <input type="tel" id="phone" placeholder="123-456-7890" required pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}">
+
+      <label for="email">Email</label>
+      <input type="email" id="email" placeholder="example@email.com" required>
+
+      <button type="button" id="next-step">Next</button>
+    </form>
+  </div>
+
+  <!-- Step 2: Confirm Payment -->
+  <div id="step-2" class="payment-container">
+    <h1>Step 2: Confirm Payment</h1>
+    <form id="payment-form" class="payment-form">
+      <label for="card-number">Card Number</label>
+      <input type="text" id="card-number" placeholder="1234 5678 9012 3456" required maxlength="16">
+
+      <label for="card-expiration">Expiration Date</label>
+      <input type="text" id="card-expiration" placeholder="MM/YY" required pattern="\d{2}/\d{2}">
+
+      <label for="card-cvv">CVV</label>
+      <input type="text" id="card-cvv" placeholder="123" required maxlength="4">
+
+      <button type="submit">Pay Now</button>
+    </form>
+    </div>
+
+    <div class="confirmation">
+        <p>By clicking "Pay Now," you agree to our <a href="#">Terms & Conditions</a>.</p>
+    </div>
+</div>
+
+    <div id="receipt-container" style="display: none;">
+      <h2>Kuitin tiedot</h2>
+      <p id="customer-name"></p>
+      <p id="payment-date"></p>
+      <ul id="product-list"></ul>
+      <p id="total-amount"></p>
+      <p id="customer-address"></p>
+      <p id="customer-phone"></p>
+      <p id="customer-email"></p>
+
+      <button id="print-receipt-btn">Tulosta kuitti</button>
+    </div>
+
+</body>
+</html>

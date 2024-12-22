@@ -1,0 +1,8 @@
+{
+    "name": "Healthysupp",
+    "version": "1.0.0",
+    "description": "API documentation for your project",
+    "title": "My Custom API Title",
+    "url": "http://localhost:3000",
+    "order": ["Authentication", "Products", "Feedback", "Purchases"]
+  }
